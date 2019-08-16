@@ -19,6 +19,14 @@ const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection establish successfully");
 });
+// telling the server were to find the routes
+const exercisesRouter = require("./routes/exercise");
+const userRouter = require("./routes/user");
+
+// first parm is the link that is typed in the URL
+// second parm will load every thing inside file
+app.use("/exercises", exercisesRouter);
+app.use("/users", userRouter);
 
 //start the server
 app.listen(port, () => {
