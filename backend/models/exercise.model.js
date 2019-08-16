@@ -14,6 +14,6 @@ const exrxSchema = new Schema(
   }
 );
 
-const Exrx = mongoose.model("Exrx", exrxSchema);
+const Exercise = mongoose.model("Exrx", exrxSchema);
 
-module.exports = Exrx;
+module.exports = Exercise;
