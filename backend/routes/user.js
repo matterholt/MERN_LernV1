@@ -1,3 +1,10 @@
+/**
+ *
+ *
+ * for the tut will not add any more routes.
+ * for side/ practice should update and create
+ */
+
 const router = require("express").Router();
 let User = require("../models/user.model");
 
