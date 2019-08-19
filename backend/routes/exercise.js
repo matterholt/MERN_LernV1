@@ -39,9 +39,10 @@ router.route("/:id").delete((req, res) => {
     .then(() => res.json("Exercise deleted!"))
     .catch(err => res.status(400).json("Error: " + err));
 });
+
 // UPDATE EXERCISE
 router.route("/update/:id").post((req, res) => {
-  Exercise.findById(req.param.id)
+  Exercise.findById(req.params.id)
     .then(exercise => {
       exercise.username = req.body.username;
       exercise.description = req.body.description;
