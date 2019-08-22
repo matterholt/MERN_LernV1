@@ -15,6 +15,9 @@ export default class CreateUser extends Component {
     e.preventDefault();
     const username = { user: this.state.username };
     console.log(username);
+    this.setState({
+      username: ""
+    });
   }
 
   render() {

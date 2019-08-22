@@ -53,9 +53,9 @@ export default class CreateExercise extends Component {
       date: this.state.date
     };
     // send to db
-    console.log(exercise);
 
-    window.location = "/";
+    console.log(exercise);
+    // window.location ="/"
   }
 
   render() {
@@ -95,7 +95,7 @@ export default class CreateExercise extends Component {
           <div className="form-group">
             <label>Duration (in minutes):</label>
             <input
-              type="text"
+              type="number"
               className="form-control"
               value={this.state.duration}
               onChange={this.onChangeDuration}
