@@ -23,6 +23,6 @@ router.route("/add").post((req, res) => {
   newUser
     .save()
     .then(() => res.json("User Added!"))
-    .catch(err => res.status(404).json("Error: " + errs));
+    .catch(err => res.status(404).json("Error: " + err));
 });
 module.exports = router;
