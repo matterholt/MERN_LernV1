@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 
 export default class CreateExercise extends Component {
   constructor(props) {
@@ -22,9 +23,13 @@ export default class CreateExercise extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      users: ["test users", "player 1", "player 2"],
-      username: "test user"
+    axios.get("http://localhost:5001/users/").then(response => {
+      if (response.data.length > 0) {
+        this.setState({
+          users: response.data.map(user => user.username),
+          username: "response.data[0].username"
+        });
+      }
     });
   }
 
@@ -52,9 +57,13 @@ export default class CreateExercise extends Component {
       duration: this.state.duration,
       date: this.state.date
     };
-    // send to db
-
     console.log(exercise);
+    // send to db
+    axios
+      .post("http://localhost:5001/exercises/add", exercise)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+
     // window.location ="/"
   }
 
